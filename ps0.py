@@ -11,24 +11,22 @@ def is_even(number):
 #1. Number digits in integer
 def number_digits(number):
 	"""Will return the number of digits in a non-negative integer"""
-	number = str(number) #convert to string to use len function
-	numberOfDigits = len(number)
-	return numberOfDigits
+	counter = 0
+	while number >= 1: #once number is less than 0, you have counted enough decimal places
+		number = number / 10 
+		counter += 1 #counter will be the number of decimal places, which is the number of digits
+	return counter
 	
 #2. Sum of digits in integer
 def sum_digits(number):
 	"""Will return the sum of the digits of a non-negative integer"""
-	number = str(number)
-	lengthOfNumber = len(number)
-	listDigits = []
-	index = 0
-	while index <= lengthOfNumber-1: #don't forget -1 b/c index starts at 0
-		numberAppending = number[index] #you can use indexes for strings
-		numberAppending = int(numberAppending) #convert number to int before adding to list so can be added together
-		listDigits.append(numberAppending)
-		index += 1
-	finalAnswer = sum(listDigits) #used sum function to add all int contents of the list 
-	return finalAnswer
+	sum = 0 #this will be added on to each time through the loop
+	while number > 0:
+		numberTensPlace = number % 10 #mod ten will always find the value in the tens place
+		sum += numberTensPlace #add the value in the tens place
+		number = number - numberTensPlace #make the number have tens place of 0
+		number = number / 10 #by dividing by ten, you lose the 0 at end and make the hundreds place the tens place
+	return sum
 
 #3. Sum of integers < given number #found range function here: https://docs.python.org/2/library/functions.html#range
 def sum_less_ints(number):
