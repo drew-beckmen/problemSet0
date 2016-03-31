@@ -16,6 +16,7 @@ print("The number 115 has {} digits." .format(number_digits(115)))
 from ps0 import sum_digits
 print("The sum of the digits of 0 is {}." .format(sum_digits(0)))
 print("The sum of the digits of 12 is {}." .format(sum_digits(12)))
+print("The sum of the digits of 100 is {}." .format(sum_digits(100)))
 print("The sum of the digits of 93 is {}." .format(sum_digits(93)))
 
 
